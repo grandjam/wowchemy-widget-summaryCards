@@ -2,24 +2,24 @@
 {{ $section := .page }}
 
 <div class="row card">
-  {{ with $page.Title }}
+  {{ with $section.Title }}
   <div class="col-md-12 section-heading">
     <h1>{{ . | markdownify | emojify }}</h1>
-    {{ if $page.Params.subtitle }}
+    {{ if $section.Params.subtitle }}
     <p>
-      {{ $page.Params.subtitle | markdownify | emojify }}
+      {{ $section.Params.subtitle | markdownify | emojify }}
     </p>
     {{ end }}
   </div>
   {{ end }}
 
-  {{ with $page.Content }}
+  {{ with $section.Content }}
   <div class="col-md-12">
     {{ . }}
   </div>
   {{ end }}
 
-  {{ range $page.Params.feature }}
+  {{ range $section.Params.feature }}
   {{ $pack := or .icon_pack "fas" }}
   {{ $pack_prefix := $pack }}
   {{ if in (slice "fab" "fas" "far" "fal") $pack }}
