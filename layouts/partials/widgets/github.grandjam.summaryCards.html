@@ -39,13 +39,15 @@
         {{- end -}}
       </div>
       {{ end }}
-      <div class="section-subheading">
+<!--       <div class="card-body">
         {{ .name | markdownify | emojify }}
-      </div>
+      </div> -->
       {{ with .description }}
-      <p>
-        {{ . | markdownify | emojify }}
-      </p>
+      <div class = "card-body">
+        <p>
+          {{ . | markdownify | emojify }}
+        </p>
+      </div> 
       {{ end }}
     </div>
   </div>
