@@ -1,25 +1,25 @@
 {{ $page := .root }}
-{{ $section := .page }}
+{{ $page := .page }}
 
-<div class="row card">
-  {{ with $section.Title }}
+<div class="row summaryCard">
+  {{ with $page.Title }}
   <div class="col-md-12 section-heading">
     <h1>{{ . | markdownify | emojify }}</h1>
-    {{ if $section.Params.subtitle }}
+    {{ if $page.Params.subtitle }}
     <p>
-      {{ $section.Params.subtitle | markdownify | emojify }}
+      {{ $page.Params.subtitle | markdownify | emojify }}
     </p>
     {{ end }}
   </div>
   {{ end }}
 
-  {{ with $section.Content }}
+  {{ with $page.Content }}
   <div class="col-md-12">
     {{ . }}
   </div>
   {{ end }}
 
-  {{ range $section.Params.feature }}
+  {{ range $page.Params.feature }}
   {{ $pack := or .icon_pack "fas" }}
   {{ $pack_prefix := $pack }}
   {{ if in (slice "fab" "fas" "far" "fal") $pack }}
@@ -28,7 +28,7 @@
   <div class="col-12 col-sm-4">
     <div class = "card">
       {{ with .icon }}
-      <div class="card-icon">
+      <div class="card-body">
         {{- if eq $pack "emoji" -}}
           {{- . | emojify -}}
         {{- else if eq $pack "custom" -}}

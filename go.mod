@@ -1,3 +1,3 @@
-module github.com/grandjam/wowchemy-widget-cards
+module github.com/grandjam/wowchemy-widget-summaryCards
 
 go 1.15
