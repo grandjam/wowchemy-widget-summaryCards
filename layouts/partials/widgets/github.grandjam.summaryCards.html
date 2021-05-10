@@ -25,19 +25,15 @@
   {{ if in (slice "fab" "fas" "far" "fal") $pack }}
     {{ $pack_prefix = "fa" }}
   {{ end }}
-  <div class="col-12 col-sm-4">
-    <div class = "card">
+  <div class="col-12 col-sm-4 d-flex">
+    <div class = "card flex-fill">
       <div class="card-img-top">
         {{ with .icon }}
         {{- if eq $pack "emoji" -}}
           {{- . | emojify -}}
         {{- else if eq $pack "custom" -}}
           {{- $svg_icon := resources.Get (printf "media/icons/%s.svg" .) -}}
-<<<<<<< HEAD
-          {{- if $svg_icon -}}<figure src="{{ $svg_icon.RelPermalink }}" alt="{{.}}" class="svg-icon-figure svg-baseline" theme = "light">{{- end -}}
-=======
           {{- if $svg_icon -}}<img src="{{ $svg_icon.RelPermalink }}" alt="{{.}}" class="svg-icon svg-baseline">{{- end -}}
->>>>>>> parent of d4be650 (Changed tag from img to figure)
         {{- else -}}
           <i class="{{ $pack }} {{ $pack_prefix }}-{{ . }}"></i>
         {{- end -}}
