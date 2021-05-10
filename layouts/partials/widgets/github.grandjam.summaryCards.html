@@ -1,4 +1,4 @@
-{{ $page := .root }}
+{{ $ := .root }}
 {{ $page := .page }}
 
 <div class="row summaryCard">
@@ -33,7 +33,7 @@
           {{- . | emojify -}}
         {{- else if eq $pack "custom" -}}
           {{- $svg_icon := resources.Get (printf "media/icons/%s.svg" .) -}}
-          {{- if $svg_icon -}}<img src="{{ $svg_icon.RelPermalink }}" alt="{{.}}" class="svg-icon svg-baseline">{{- end -}}
+          {{- if $svg_icon -}}<figure src="{{ $svg_icon.RelPermalink }}" alt="{{.}}" class="svg-icon-figure svg-baseline", theme = "light">{{- end -}}
         {{- else -}}
           <i class="{{ $pack }} {{ $pack_prefix }}-{{ . }}"></i>
         {{- end -}}
