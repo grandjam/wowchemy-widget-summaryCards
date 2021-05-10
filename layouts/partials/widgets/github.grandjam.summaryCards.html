@@ -27,8 +27,8 @@
   {{ end }}
   <div class="col-12 col-sm-4">
     <div class = "card">
-      {{ with .icon }}
       <div class="card-img-top">
+        {{ with .icon }}
         {{- if eq $pack "emoji" -}}
           {{- . | emojify -}}
         {{- else if eq $pack "custom" -}}
@@ -41,7 +41,8 @@
       {{ end }}
       <div class="card-body">
         <h5 class="card-title">{{ .name | markdownify | emojify }}</h5>
-        <p class="card-text">{{ with .description }}{{ . | markdownify | emojify }}</p>
+        {{ with .description }}
+        <p class="card-text">{{ . | markdownify | emojify }}</p>
       </div>   
     </div>
     {{ end }}
