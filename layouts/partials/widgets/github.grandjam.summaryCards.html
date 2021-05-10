@@ -41,8 +41,8 @@
       {{ end }}
       <div class="card-body">
         <h5 class="card-title">{{ .name | markdownify | emojify }}</h5>
-        {{ with .description }}
-        <p class="card-text">{{ . | markdownify | emojify }}</p>
+        <!-- {{ with .description }} -->
+        <p class="card-text">{{ .description | markdownify | emojify }}</p>
       </div>   
     </div>
     {{ end }}
