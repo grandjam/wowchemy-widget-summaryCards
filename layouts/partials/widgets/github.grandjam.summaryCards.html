@@ -37,15 +37,15 @@
         {{- else -}}
           <i class="{{ $pack }} {{ $pack_prefix }}-{{ . }}"></i>
         {{- end -}}
+        {{ end }}
       </div>
-      {{ end }}
       <div class="card-body">
         <h5 class="card-title">{{ .name | markdownify | emojify }}</h5>
         <!-- {{ with .description }} -->
         <p class="card-text">{{ .description | markdownify | emojify }}</p>
+        <!-- {{ end }} -->
       </div>   
     </div>
-    {{ end }}
   </div>
   {{ end }}
 </div>
