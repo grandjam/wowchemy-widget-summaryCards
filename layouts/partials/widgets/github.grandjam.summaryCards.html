@@ -28,7 +28,7 @@
   <div class="col-12 col-sm-4">
     <div class = "card">
       {{ with .icon }}
-      <div class="card-body">
+      <div class="card-img-top">
         {{- if eq $pack "emoji" -}}
           {{- . | emojify -}}
         {{- else if eq $pack "custom" -}}
