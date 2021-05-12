@@ -20,25 +20,25 @@
   {{ end }}
 
   {{ range $page.Params.feature }}
-  {{ $pack := or .icon_pack "fas" }}
-  {{ $pack_prefix := $pack }}
-  {{ if in (slice "fab" "fas" "far" "fal") $pack }}
-    {{ $pack_prefix = "fa" }}
+  {{ $top_pack := or .top_icon_pack "fas" }}
+  {{ $top_pack_prefix := $top_pack }}
+  {{ if in (slice "fab" "fas" "far" "fal") $top_pack }}
+    {{ $top_pack_prefix = "fa" }}
   {{ end }}
   <div class="col-12 col-sm-4 d-flex">
     <div class = "card flex-fill">
       <div class="card-img-top">
-        {{ with .icon }}
-          {{- if eq $pack "emoji" -}}
+        {{ with .top_icon }}
+          {{- if eq $top_pack "emoji" -}}
             {{- . | emojify -}}
-          {{- else if eq $pack "custom" -}}
+          {{- else if eq $top_pack "custom" -}}
             {{- $svg_icon := printf "assets/media/icons/%s.svg" . -}}
             {{/* {{- if $svg_icon -}}<img src="{{ $svg_icon.RelPermalink }}" alt="{{.}}" class="svg-icon svg-baseline">{{- end -}} */}}
             {{/* {{- if $svg_icon -}}<object type="image/svg+xml" data ="{{ $svg_icon.RelPermalink }}" alt="{{.}}" class="svg-img-icon"></object>{{- end -}} */}}
             {{/* {{- if $svg_icon -}}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{{- readFile $svg_icon -}}</svg>{{- end -}} */}}
             {{- if $svg_icon -}} {{- $svg_icon | readFile | markdownify -}} {{- end -}}
           {{- else -}}
-            <i class="{{ $pack }} {{ $pack_prefix }}-{{ . }}"></i>
+            <i class="{{ $top_pack }} {{ $top_pack_prefix }}-{{ . }}"></i>
           {{- end -}}
       </div>
       {{ end }}
