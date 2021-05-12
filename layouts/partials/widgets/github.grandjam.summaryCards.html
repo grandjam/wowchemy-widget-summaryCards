@@ -43,7 +43,7 @@
       </div>
       {{ end }}
       <div class="card-body">
-        <h5 class="card-title">{{ .name | markdownify | emojify }}</h5>
+        <h4 class="card-title">{{ .name | markdownify | emojify }}</h4>
         {{ with .description }}
         <p class="card-text">{{ . | markdownify | emojify }}</p>{{ end }}
       </div>   
