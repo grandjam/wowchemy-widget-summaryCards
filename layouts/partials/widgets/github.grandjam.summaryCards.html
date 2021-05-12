@@ -32,11 +32,11 @@
           {{- if eq $pack "emoji" -}}
             {{- . | emojify -}}
           {{- else if eq $pack "custom" -}}
-            {{- $svg_icon := resources.Get (printf "media/icons/%s.svg" .) -}}
+            {{- $svg_icon := resources.Get (printf "assets/media/icons/%s.svg" .) -}}
             {{/* {{- if $svg_icon -}}<img src="{{ $svg_icon.RelPermalink }}" alt="{{.}}" class="svg-icon svg-baseline">{{- end -}} */}}
             {{/* {{- if $svg_icon -}}<object type="image/svg+xml" data ="{{ $svg_icon.RelPermalink }}" alt="{{.}}" class="svg-img-icon"></object>{{- end -}} */}}
             {{/* {{- if $svg_icon -}}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{{- readFile $svg_icon -}}</svg>{{- end -}} */}}
-            {{- if $svg_icon -}} {{- $svg_icon.RelPermalink -}} {{- end -}}
+            {{- if $svg_icon -}} {{- $svg_icon -}} {{- end -}}
           {{- else -}}
             <i class="{{ $pack }} {{ $pack_prefix }}-{{ . }}"></i>
           {{- end -}}
