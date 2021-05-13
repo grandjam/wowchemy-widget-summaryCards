@@ -37,8 +37,8 @@
           {{- else -}} {{/* If icon is font awesome */}}
             <i class="{{ $top_pack }} {{ $top_pack_prefix }}-{{ . }}"></i>
           {{- end -}}
+        {{ end }}
       </div>
-      {{ end }}
       <div class="card-body">
         <h3 class="card-title">{{ .name | markdownify | emojify }}</h3>
         {{ with .description }}
@@ -67,9 +67,7 @@
               {{- $btn_icon := printf "assets/media/icons/%s.svg" $page.Params.btn_icon -}}
               {{- if $btn_icon -}} {{- $btn_icon | readFile | markdownify -}} {{- end -}}
             {{- else -}} {{/* If icon is font awesome */}}
-              {{- with .btn_icon -}}
-              {{- $btn_icon := $page.Params.btn_icon | printf %s-%s $btn_pack_prefix | printf %s %s $btn_pack . -}}
-              {{- end -}}
+              {{- $btn_icon := $page.Params.btn_icon | printf "%s-%s" $btn_pack_prefix | printf "%s %s" $btn_pack -}}
             {{- end - }}
             <a 
             href="{{ $btn_link | safeURL }}" {{ $btn_target | safeHTMLAttr }} 
