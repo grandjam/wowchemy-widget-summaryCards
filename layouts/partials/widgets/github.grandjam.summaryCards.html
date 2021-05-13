@@ -48,7 +48,7 @@
           {{ end }}
           
           {{/* Add button -- uses shortcode from hero.md */}}
-          {{ with .btn_url }}
+          {{ if .btn_url }}
             {{ $btn_pack := or .btn_icon_pack "fas" }}
             {{ $btn_pack_prefix := $btn_pack }}
             {{ if in (slice "fab" "fas" "far" "fal") $btn_pack }}
