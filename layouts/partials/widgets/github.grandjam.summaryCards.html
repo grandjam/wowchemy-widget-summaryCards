@@ -29,12 +29,12 @@
     <div class = "card flex-fill">
       <div class="card-img-top">
         {{ with .top_icon }}
-          {{- if eq $top_pack "emoji" -}} {{*/ If icon is an emoji */}}
+          {{- if eq $top_pack "emoji" -}} {{/* If icon is an emoji */}}
             {{- . | emojify -}}
-          {{- else if eq $top_pack "custom" -}} {{*/ If icon is a custom svg */}}
+          {{- else if eq $top_pack "custom" -}} {{/* If icon is a custom svg */}}
             {{- $svg_icon := printf "assets/media/icons/%s.svg" . -}}
             {{- if $svg_icon -}} {{- $svg_icon | readFile | markdownify -}} {{- end -}}
-          {{- else -}} {{*/ If icon is font awesome */}}
+          {{- else -}} {{/* If icon is font awesome */}}
             <i class="{{ $top_pack }} {{ $top_pack_prefix }}-{{ . }}"></i>
           {{- end -}}
       </div>
@@ -61,12 +61,12 @@
             {{ $btn_target = "target=\"_blank\" rel=\"noopener\"" }}
           {{ end }}
           <p class="card-btns">
-            {{- if eq $btn_pack "emoji" -}} {{*/ If icon is an emoji */}}
+            {{- if eq $btn_pack "emoji" -}} {{/* If icon is an emoji */}}
               {{- $btn_icon := $page.Params.btn_icon | emojify -}}
-            {{- else if eq $btn_pack "custom" -}} {{*/ If icon is a custom svg */}}
+            {{- else if eq $btn_pack "custom" -}} {{/* If icon is a custom svg */}}
               {{- $btn_icon := printf "assets/media/icons/%s.svg" $page.Params.btn_icon -}}
               {{- if $btn_icon -}} {{- $btn_icon | readFile | markdownify -}} {{- end -}}
-            {{- else -}}
+            {{- else -}} {{/* If icon is font awesome */}}
               {{- $btn_icon := {{ btn_pack}} {{ $btn_pack_prefix }}-{{ $page.Params.btn_icon }} -}}
             {{- end - }}
             <a 
