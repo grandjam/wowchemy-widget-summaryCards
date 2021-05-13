@@ -63,19 +63,21 @@
               {{ $btn_target = "target=\"_blank\" rel=\"noopener\"" }}
             {{ end }}
             {{ $btn_label := .btn_icon_label }}
-            <a href="{{ $btn_link | safeURL }}" {{ $btn_target | safeHTMLAttr }} class="btn card-btn btn-lg mb-3 mb-md-1">
-              {{ if .btn_icon }}
-                {{- $btn_icon := .btn_icon | printf "%s-%s" $btn_pack_prefix | printf "%s %s" $btn_pack -}} {{/* Assign btn_icon as fontawesome icon by default */}}
-                {{- if eq $btn_pack "emoji" -}} {{/* If icon if icon is an emoji */}}
-                  {{- $btn_icon = .btn_icon | emojify -}}
-                {{- else if eq $btn_pack "custom" -}} {{/* If icon is a custom svg */}}
-                  {{- $btn_icon = printf "assets/media/icons/%s.svg" .btn_icon -}}
-                  {{- if $btn_icon -}} {{- $btn_icon | readFile | markdownify -}} {{- end -}}
-                {{- end -}}
-                <i class="{{ $btn_icon }} pr-1" aria-hidden="true"></i>
-              {{ end }}
-              {{ $btn_label | markdownify | emojify | safeHTML }}
-            </a>
+            <p class="card-btn">
+              <a href="{{ $btn_link | safeURL }}" {{ $btn_target | safeHTMLAttr }} class="btn btn-lg mb-3 mb-md-1">
+                {{ if .btn_icon }}
+                  {{- $btn_icon := .btn_icon | printf "%s-%s" $btn_pack_prefix | printf "%s %s" $btn_pack -}} {{/* Assign btn_icon as fontawesome icon by default */}}
+                  {{- if eq $btn_pack "emoji" -}} {{/* If icon if icon is an emoji */}}
+                    {{- $btn_icon = .btn_icon | emojify -}}
+                  {{- else if eq $btn_pack "custom" -}} {{/* If icon is a custom svg */}}
+                    {{- $btn_icon = printf "assets/media/icons/%s.svg" .btn_icon -}}
+                    {{- if $btn_icon -}} {{- $btn_icon | readFile | markdownify -}} {{- end -}}
+                  {{- end -}}
+                  <i class="{{ $btn_icon }} pr-1" aria-hidden="true"></i>
+                {{ end }}
+                {{ $btn_label | markdownify | emojify | safeHTML }}
+              </a>
+            </p>
           {{ end }}
         </div>   
       </div>
