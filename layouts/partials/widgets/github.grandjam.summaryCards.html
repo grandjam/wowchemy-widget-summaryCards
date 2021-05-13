@@ -47,10 +47,8 @@
           <p class="card-text">{{ . | markdownify | emojify }}</p>
           {{ end }}
           
-          <p class="card-btn">"Test</p>
-
           {{/* Add button -- uses shortcode from hero.md */}}
-          {{ with .btn_url }}
+          {{/* {{ with .btn_url }} */}}
             {{ $btn_pack := or $page.Params.btn_icon_pack "fas" }}
             {{ $btn_pack_prefix := $btn_pack }}
             {{ if in (slice "fab" "fas" "far" "fal") $btn_pack }}
@@ -77,7 +75,7 @@
               {{ end }}
               {{ $page.Params.btn_label | markdownify | emojify | safeHTML }}
             </a>
-          {{ end }}
+          {{/* {{ end }} */}}
         </div>   
       </div>
     </div>
