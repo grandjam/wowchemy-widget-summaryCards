@@ -68,7 +68,7 @@
               {{- if $btn_icon -}} {{- $btn_icon | readFile | markdownify -}} {{- end -}}
             {{- else -}} {{/* If icon is font awesome */}}
               {{- $btn_icon := $page.Params.btn_icon | printf "%s-%s" $btn_pack_prefix | printf "%s %s" $btn_pack -}}
-            {{- end - }}
+            {{- end -}}
             <a 
             href="{{ $btn_link | safeURL }}" {{ $btn_target | safeHTMLAttr }} 
             class="btn btn-lg mb-3 mb-md-1">
