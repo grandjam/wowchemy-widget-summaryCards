@@ -63,7 +63,7 @@
               {{ $btn_target = "target=\"_blank\" rel=\"noopener\"" }}
             {{ end }}
             {{ $btn_label := .btn_icon_label }}
-            <a href="{{ $btn_link | safeURL }}" {{ $btn_target | safeHTMLAttr }} class="btn btn-lg mb-3 mb-md-1">
+            <a href="{{ $btn_link | safeURL }}" {{ $btn_target | safeHTMLAttr }} class="btn card-btn btn-lg mb-3 mb-md-1">
               {{ if .btn_icon }}
                 {{- $btn_icon := .btn_icon | printf "%s-%s" $btn_pack_prefix | printf "%s %s" $btn_pack -}} {{/* Assign btn_icon as fontawesome icon by default */}}
                 {{- if eq $btn_pack "emoji" -}} {{/* If icon if icon is an emoji */}}
