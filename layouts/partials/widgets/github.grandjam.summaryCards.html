@@ -54,7 +54,7 @@
             {{ if in (slice "fab" "fas" "far" "fal") $btn_pack }}
               {{ $btn_pack_prefix = "fa" }}
             {{ end }}
-            {{ $btn_link := . }}
+            {{ $btn_link := $page.Params.btn_url }}
             {{ $btn_scheme := (urls.Parse $btn_link).Scheme }}
             {{ $btn_target := "" }}
             {{ if not $btn_scheme }}
