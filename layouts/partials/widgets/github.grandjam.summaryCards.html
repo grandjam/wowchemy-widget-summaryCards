@@ -62,7 +62,7 @@
             {{ else if in (slice "http" "https") $btn_scheme }}
               {{ $btn_target = "target=\"_blank\" rel=\"noopener\"" }}
             {{ end }}
-            {{ $btn_label := .btn_label }}
+            {{ $btn_label := .btn_icon_label }}
             <a href="{{ $btn_link | safeURL }}" {{ $btn_target | safeHTMLAttr }} class="btn btn-lg mb-3 mb-md-1">
               {{ if .btn_icon }}
                 {{- $btn_icon := .btn_icon | printf "%s-%s" $btn_pack_prefix | printf "%s %s" $btn_pack -}} {{/* Assign btn_icon as fontawesome icon by default */}}
@@ -74,7 +74,7 @@
                 {{- end -}}
                 <i class="{{ $btn_icon }} pr-1" aria-hidden="true"></i>
               {{ end }}
-              {{ $btn_label | markdownify | emojify | safeHTML }}
+              {{ $btn_icon_label | markdownify | emojify | safeHTML }}
             </a>
           {{ end }}
         </div>   
